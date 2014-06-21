@@ -1,5 +1,16 @@
-extends layout
+doctype html
+html(ng-app='aeManagerApp')
+    head
+        title #{title}
+        link(rel='stylesheet' href='/stylesheets/style.css')
+    body(ng-controller="MainCtrl as ctrl")
+        h1 #{title}
 
-block content
-  h1= title
-  p Welcome to #{title}
+        div(ng-repeat='item in ctrl.items')
+            div.item 
+                // img(src='images/items/{{item.name | lowercase}}.png')
+                h1 {{item.name}} - {{item.id}}:{{item.dmg}}
+                span {{item.qty}}
+        script(src='/javascript/angular.js')
+        script(src='/javascript/aeManagerApp.js')
+
